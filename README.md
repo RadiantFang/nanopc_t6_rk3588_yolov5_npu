@@ -65,6 +65,16 @@ conda activate rk3588_yolov5
 cd <workspace-root>/nanopc_t6_rk3588_yolov5_npu
 ```
 
+### 3.2 安装 Python 依赖（requirements.txt）
+
+```bash
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -r requirements.txt
+```
+
+说明：
+- 若 `rknn-toolkit2` / `rknn-toolkit-lite2` 直接安装失败，请使用 Rockchip 官方提供的 wheel 文件安装。
+
 首次部署可执行：
 
 ```bash
@@ -73,7 +83,7 @@ conda activate rk3588_yolov5
 bash scripts/00_check_env.sh
 ```
 
-### 3.2 模型准备
+### 3.3 模型准备
 
 ```bash
 bash scripts/01_download_model.sh
@@ -84,7 +94,7 @@ bash scripts/02_convert_rknn.sh
 - ONNX：`../rknn_model_zoo/examples/yolov5/model/yolov5m.onnx`
 - RKNN：`output/yolov5_rk3588.rknn`
 
-### 3.3 图片推理
+### 3.4 图片推理
 
 ```bash
 bash scripts/03_infer_npu.sh
