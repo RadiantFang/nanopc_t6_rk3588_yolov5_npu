@@ -19,6 +19,9 @@ git clone git@github.com:RadiantFang/nanopc_t6_rk3588_yolov5_npu.git
 目录关系：
 - 本项目：`<workspace-root>/nanopc_t6_rk3588_yolov5_npu`
 - 同级依赖：`<workspace-root>/rknn_model_zoo`
+- 测试文件夹：`<workspace-root>/nanopc_t6_rk3588_yolov5_npu/test_assets`
+  - `test_assets/bus.jpg`
+  - `test_assets/che.mp4`
 
 ---
 
@@ -100,19 +103,20 @@ bash scripts/03_infer_npu.sh
 
 ## 4. 视频推理
 
-### 4.1 下载测试视频
+### 4.1 测试视频来源
 
 ```bash
+# 可选：下载额外测试视频（保存到 output/test_video.mp4）
 bash scripts/04_download_test_video.sh
 ```
 
 默认视频路径：
-- `output/test_video.mp4`
+- `test_assets/che.mp4`
 
 ### 4.2 单路视频推理
 
 ```bash
-VIDEO_IN=output/test_video.mp4 \
+VIDEO_IN=test_assets/che.mp4 \
 VIDEO_OUT=output/result_single.mp4 \
 MAX_FRAMES=0 \
 CORE_MASK=NPU_CORE_0_1_2 \
@@ -126,7 +130,7 @@ bash scripts/05_infer_video_npu.sh
 ### 4.3 三核并发视频推理
 
 ```bash
-VIDEO_IN=output/test_video.mp4 \
+VIDEO_IN=test_assets/che.mp4 \
 VIDEO_OUT=output/result_multi.mp4 \
 MAX_FRAMES=0 \
 CORE_MASKS=NPU_CORE_0,NPU_CORE_1,NPU_CORE_2 \
@@ -186,10 +190,10 @@ bash scripts/06_infer_video_multi_npu.sh
 bash scripts/03_infer_npu.sh
 
 # 单路视频（30 帧）
-MAX_FRAMES=30 VIDEO_IN=output/test_video.mp4 VIDEO_OUT=output/check_single.mp4 bash scripts/05_infer_video_npu.sh
+MAX_FRAMES=30 VIDEO_IN=test_assets/che.mp4 VIDEO_OUT=output/check_single.mp4 bash scripts/05_infer_video_npu.sh
 
 # 三核并发视频（30 帧）
-MAX_FRAMES=30 VIDEO_IN=output/test_video.mp4 VIDEO_OUT=output/check_multi.mp4 bash scripts/06_infer_video_multi_npu.sh
+MAX_FRAMES=30 VIDEO_IN=test_assets/che.mp4 VIDEO_OUT=output/check_multi.mp4 bash scripts/06_infer_video_multi_npu.sh
 ```
 
 ---
