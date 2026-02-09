@@ -12,16 +12,13 @@ cd <workspace-root>
 # 1) 先拉取依赖仓库
 git clone https://github.com/airockchip/rknn_model_zoo.git
 
-# 2) 再拉取本项目（请替换为你的项目仓库地址）
-git clone <this-project-repo-url> nanopc_t6_rk3588_yolov5_npu
+# 2) 再拉取本项目
+git clone git@github.com:RadiantFang/nanopc_t6_rk3588_yolov5_npu.git
 ```
 
 目录关系：
 - 本项目：`<workspace-root>/nanopc_t6_rk3588_yolov5_npu`
 - 同级依赖：`<workspace-root>/rknn_model_zoo`
-
-说明：
-- 当前版本已移除对 `../yolov5` 本地仓库的依赖。
 
 ---
 
